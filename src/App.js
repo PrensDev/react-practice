@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
-import Navbar from './components/navbar';
-import Counters from './components/counters';
+import Resume from './resume/resume';
 
 class App extends Component {
   render() {
     return (
-      <>
-        <Navbar />
-        <Counters />
-      </>
+      <Resume />
     );
   }
 }
