@@ -18,18 +18,9 @@ class Counters extends Component {
         ]
     }
 
-    handleIncrement = counter => {
-        const counters = [...this.state.counters];
-        const index = counters.indexOf(counter);
-        counters[index] = {...counter}
-        counters[index].value++;
-        console.log(this.state.counters[index])
-        this.setState({ counters })
-    }
-
     render() {
         return (
-            <div className="container">
+            <div className="container py-3">
 
                 {/* Reset Button */}
                 <div className="mb-3">
@@ -47,6 +38,15 @@ class Counters extends Component {
                 </table>
             </div>
         );
+    }
+
+    handleIncrement = counter => {
+        const counters = [...this.state.counters];
+        const index = counters.indexOf(counter);
+        counters[index] = {...counter}
+        counters[index].value++;
+        console.log(this.state.counters[index])
+        this.setState({ counters })
     }
     
     renderCounters() {
