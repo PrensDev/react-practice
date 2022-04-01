@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class Honors extends Component {
+class Awards extends Component {
     state = {  } 
     render() { 
         return (
@@ -9,4 +9,4 @@ class Honors extends Component {
     }
 }
 
-export default Honors;
+export default Awards;

@@ -5,7 +5,9 @@ import Experiences from './components/experiences';
 import Education from './components/education';
 import Licenses from './components/licenses';
 import Skills from './components/skills';
-import Honors from './components/honors';
+import Awards from './components/awards';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 
 class Resume extends Component {
     state = { 
@@ -19,21 +21,41 @@ class Resume extends Component {
         education: [
             {
                 id: 1,
-                school: "Bignay National High School"
+                school: "Bignay National High School",
             }, {
                 id: 2,
-                school: "Our Lady of Fatima University"
+                school: "Our Lady of Fatima University",
+                degree: "High School Graduate"
             }, {
                 id: 3,
-                school: "Polytechnic University of the Philippines"
+                school: "Polytechnic University of the Philippines",
+                degree: "Bachelor of Science in Information Technology"
             }
         ],
+        licenses: [
+
+        ],
+        skills: [
+            {
+                id: 1,
+                name: 'Web Development'
+            }, {
+                id: 2, 
+                name: 'UI/UX Designer'
+            }, {
+                id: 3,
+                name: 'Programmer'
+            }
+        ],
+        awards: [
+
+        ]
     }
 
     render() { 
         return (
             <div className="bg-light py-3">
-                <div className="container">
+                <div className="container-lg">
                     <div className="row justify-content-center">
                         <div className="col-md-10">
 
@@ -49,10 +71,24 @@ class Resume extends Component {
                                 <hr className="my-4" />
                                 <Licenses />
                                 <hr className="my-4" />
-                                <Skills />
+                                <Skills skills={ this.state.skills }/>
                                 <hr className="my-4" />
-                                <Honors />
+                                <Awards />
                             </div>
+
+                            {/* Action Buttons */}
+                            <div className="text-center mt-3">
+                                <button className="btn btn-danger">
+                                    <FontAwesomeIcon icon={ solid('sync-alt') } fixedWidth />
+                                    <span>Reset</span>
+                                </button>
+                                <span className="mx-2"></span>
+                                <button className="btn btn-primary">
+                                    <span>Submit</span>
+                                    <FontAwesomeIcon icon={ solid('check') } fixedWidth />
+                                </button>
+                            </div>
+
                         </div>
                     </div>
                 </div>
