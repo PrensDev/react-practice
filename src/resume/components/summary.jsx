@@ -8,7 +8,7 @@ class Summary extends Component {
         const { summary } = this.props;
         return summary 
             ? (
-                <p>{ summary }</p>
+                <div className="my-3">{ summary }</div>
             ) 
             : (
                 <div className="text-center small text-secondary fst-italic p-3">This optional section can help you stand out to recruiters. If this section is empty, it will not appear on your resume.</div>

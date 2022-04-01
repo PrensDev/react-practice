@@ -14,10 +14,22 @@ class Resume extends Component {
         applicant: {
             first_name: "Jetsun Prince",
             middle_name: "P.",
-            last_name: "Torres"
+            last_name: "Torres",
+            email: "jetsunprincetorres@sample.com",
+            contact_number: "09123456789"
         },
         summary: "Hello World! I am Jetsun Prince Torres. I am an aspirant Filipino Web Developer, Designer, and Programmer.",
-        experiences: [],
+        experiences: [
+            {
+                id: 1,
+                title: "Web Developer",
+                company: "Tesla Company"
+            }, {
+                id: 2,
+                title: "Software Qualify Assurance/Tester",
+                company: "Tesla Company"
+            }
+        ],
         education: [
             {
                 id: 1,
@@ -33,7 +45,13 @@ class Resume extends Component {
             }
         ],
         licenses: [
-
+            {
+                id: 1,
+                name: "Cisco Certified Network Associate Security"
+            }, {
+                id: 2,
+                name: "Cisco Certified Network Associate Security"
+            }
         ],
         skills: [
             {
@@ -45,10 +63,19 @@ class Resume extends Component {
             }, {
                 id: 3,
                 name: 'Programmer'
+            }, {
+                id: 4,
+                name: 'Quality Assurance/Tester'
+            }, {
+                id: 5,
+                name: 'Database Administrator'
             }
         ],
         awards: [
-
+            {
+                id: 1,
+                name: "Cum Laude"
+            }
         ]
     }
 
@@ -69,11 +96,11 @@ class Resume extends Component {
                                 <hr className="my-4" />
                                 <Education education={ this.state.education } />
                                 <hr className="my-4" />
-                                <Licenses />
+                                <Licenses licenses={ this.state.licenses }/>
                                 <hr className="my-4" />
                                 <Skills skills={ this.state.skills }/>
                                 <hr className="my-4" />
-                                <Awards />
+                                <Awards awards={ this.state.awards } />
                             </div>
 
                             {/* Action Buttons */}

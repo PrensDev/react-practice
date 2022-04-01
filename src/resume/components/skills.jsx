@@ -9,8 +9,8 @@ class Skills extends Component {
         if(skills.length > 0) {
             return skills.map((s, i) =>
                 <span key={i}>
-                    <span id={ s.id }>{ s.name }</span>
-                    { i < skills.length-1 && <span className="mx-2">&bull;</span> }
+                    <span className="fw-bold" id={ s.id }>{ s.name }</span>
+                    { i < skills.length-1 && <span className="text-secondary mx-2">&bull;</span> }
                 </span>
             )
         } else return (
@@ -25,15 +25,18 @@ class Skills extends Component {
                     <h5 className="m-0">Skills</h5>
                     <div>
                         <button className="btn btn-sm btn-outline-secondary">
-                            <FontAwesomeIcon 
-                                icon={ solid('edit') } 
-                            />
+                            <FontAwesomeIcon icon={ solid('edit') } />
                         </button>
                     </div>
                 </div>
 
-                <div>
-                    { this.getSkills() }
+                <div className="d-flex justify-content-between align-items-start my-3">
+                    <div className="">
+                        <FontAwesomeIcon icon={ solid('check-double') } className="text-secondary" />
+                    </div>
+                    <div class="flex-grow-1">
+                        { this.getSkills() }
+                    </div>
                 </div>
             </>
         );

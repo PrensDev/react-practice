@@ -6,13 +6,28 @@ class Experiences extends Component {
 
     getExperiences = () => {
         const { experiences } = this.props
+        
         if(experiences.length > 0) {
-            return experiences.map(e => 
-                <div key={ e.id }>{ e.title }</div>
+            return experiences.map(e =>
+                <div key={ e.id } className="d-flex justify-content-between align-items-start my-3">
+                    <div>
+                        <FontAwesomeIcon icon={ solid('file-alt') }  className="text-secondary" />
+                    </div>
+                    <div className="flex-grow-1">
+                        <div className="fw-bold">{ e.title }</div>
+                        <div>{ e.company }</div>
+                    </div>
+                    <div>
+                        <button className="btn btn-sm btn-outline-secondary">
+                            <FontAwesomeIcon icon={ solid('edit') } />
+                        </button>
+                    </div>
+                </div>
             )
-        } else return (
-            <div className="text-center small text-secondary fst-italic p-3">This section is empty and won’t appear in your resume.</div>
-        )
+        } else 
+            return (
+                <div className="text-center small text-secondary fst-italic p-3">This section is empty and won’t appear in your resume.</div>
+            )
     }
 
     render() { 
