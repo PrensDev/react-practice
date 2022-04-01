@@ -5,7 +5,7 @@ import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 class Summary extends Component {
 
     getSummary = () => {
-        const { summary } = this.props;
+        const { summary } = this.props || false;
         return summary 
             ? (
                 <div className="my-3">{ summary }</div>

@@ -5,9 +5,9 @@ import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 class Education extends Component {
 
     getEducation = () => {
-        const { education } = this.props;
+        const { education } = this.props || [];
         
-        if(education.length > 0) {
+        if(education && education.length > 0) {
             return education.map((e, i) => 
                 <div className="d-flex align-items-start my-3" key={ i }>
                     <div>

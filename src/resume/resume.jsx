@@ -1,4 +1,10 @@
 import React, { Component } from 'react';
+
+// Font awesome
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
+
+// Resume Components
 import BasicInfo from './components/basicInfo';
 import Summary from './components/summary';
 import Experiences from './components/experiences';
@@ -6,8 +12,7 @@ import Education from './components/education';
 import Licenses from './components/licenses';
 import Skills from './components/skills';
 import Awards from './components/awards';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
+
 
 class Resume extends Component {
     state = { 
@@ -78,6 +83,8 @@ class Resume extends Component {
             }
         ]
     }
+
+    // state = {}
 
     render() { 
         return (

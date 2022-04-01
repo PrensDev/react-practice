@@ -6,7 +6,7 @@ class Awards extends Component {
 
     getAwards = () => {
         const { awards } = this.props;
-        if(!awards.length || awards.length === 0)
+        if(!awards || awards.length === 0)
             return (
                 <div className="text-center small text-secondary fst-italic p-3">This section is empty and won’t appear in your resume.</div>
             )
@@ -16,7 +16,7 @@ class Awards extends Component {
                     <div>
                         <FontAwesomeIcon icon={ solid('award') } className="text-secondary" />
                     </div>
-                    <div class="flex-grow-1">
+                    <div className="flex-grow-1">
                         <div className="fw-bold">{ a.name }</div>
                     </div>
                     <div>

@@ -5,9 +5,9 @@ import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
 class Experiences extends Component {
 
     getExperiences = () => {
-        const { experiences } = this.props
+        const { experiences } = this.props || [];
         
-        if(experiences.length > 0) {
+        if(experiences && experiences.length > 0) {
             return experiences.map(e =>
                 <div key={ e.id } className="d-flex justify-content-between align-items-start my-3">
                     <div>

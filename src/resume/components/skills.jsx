@@ -6,12 +6,24 @@ class Skills extends Component {
     
     getSkills = () => {
         const { skills } = this.props;
-        if(skills.length > 0) {
-            return skills.map((s, i) =>
-                <span key={i}>
-                    <span className="fw-bold" id={ s.id }>{ s.name }</span>
-                    { i < skills.length-1 && <span className="text-secondary mx-2">&bull;</span> }
-                </span>
+        if(skills && skills.length > 0) {
+            const skillsElements = () => {
+                return skills.map((s, i) =>
+                    <span key={i}>
+                        <span className="fw-bold" id={ s.id }>{ s.name }</span>
+                        { i < skills.length-1 && <span className="text-secondary mx-2">&bull;</span> }
+                    </span>
+                )
+            }
+            return (
+                <div className="d-flex justify-content-between align-items-start my-3">
+                    <div className="">
+                        <FontAwesomeIcon icon={ solid('check-double') } className="text-secondary" />
+                    </div>
+                    <div className="flex-grow-1">
+                        { skillsElements() }
+                    </div>
+                </div>
             )
         } else return (
             <div className="text-center small text-secondary fst-italic p-3">This section is empty and won’t appear in your resume.</div>
@@ -30,14 +42,7 @@ class Skills extends Component {
                     </div>
                 </div>
 
-                <div className="d-flex justify-content-between align-items-start my-3">
-                    <div className="">
-                        <FontAwesomeIcon icon={ solid('check-double') } className="text-secondary" />
-                    </div>
-                    <div class="flex-grow-1">
-                        { this.getSkills() }
-                    </div>
-                </div>
+                { this.getSkills() }
             </>
         );
     }

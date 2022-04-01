@@ -5,9 +5,9 @@ import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
 class Licenses extends Component {
 
     getLicences = () => {
-        const { licenses } = this.props;
+        const { licenses } = this.props || [];
 
-        if(licenses.length === 0)
+        if(!licenses || licenses.length === 0)
             return (
                 <div className="text-center small text-secondary fst-italic p-3">This section is empty and won’t appear in your resume.</div>
             )
