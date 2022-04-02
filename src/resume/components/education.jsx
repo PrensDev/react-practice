@@ -7,14 +7,19 @@ class Education extends Component {
     getEducation = () => {
         const { education } = this.props || [];
         
-        if(education && education.length > 0) {
-            return education.map((e, i) => 
+        return (!education || education.length === 0)
+            ? <div className="text-center small text-secondary fst-italic p-3">This section is empty and won’t appear in your resume.</div>
+            : education.map((e, i) => 
                 <div className="d-flex align-items-start my-3" key={ i }>
                     <div>
                         <FontAwesomeIcon icon={ solid('graduation-cap') } className="text-secondary" />
                     </div>
                     <div className="flex-grow-1">
+
+                        {/* School */}
                         <div key={ e.id } className="fw-bold">{ e.school }</div>
+
+                        {/* Degree */}
                         { e.degree && <div>{ e.degree }</div> }
                     </div>
                     <div>
@@ -24,9 +29,6 @@ class Education extends Component {
                     </div>
                 </div>
             )
-        } else return (
-            <div className="text-center small text-secondary fst-italic p-3">This section is empty and won’t appear in your resume.</div>
-        )
     }
 
     render() { 

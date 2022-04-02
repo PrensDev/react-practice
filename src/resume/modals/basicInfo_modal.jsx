@@ -1,6 +1,6 @@
-import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 
 class BasicInfo_Modal extends Component {
     
@@ -11,7 +11,7 @@ class BasicInfo_Modal extends Component {
     
     render() { 
         return (
-            <div className="modal fade" id="updateBasicInfo-Modal">
+            <div className="modal" id="updateBasicInfo-Modal">
                 <div className="modal-dialog modal-lg modal-dialog-scrollable">
                     <form className="modal-content" id="updateBasicInfo-Form" onSubmit={ this.validateForm }>
                         

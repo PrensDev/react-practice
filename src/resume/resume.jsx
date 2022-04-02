@@ -21,9 +21,20 @@ class Resume extends Component {
             middle_name: "P.",
             last_name: "Torres",
             email: "jetsunprincetorres@sample.com",
-            contact_number: "09123456789"
+            contact_number: "09123456789",
+            links: [
+                {
+                    id: 1,
+                    link: "https://www.linkedin.com/in/jetsunprince/",
+                    name: "LinkedIn"
+                }, {
+                    id: 2,
+                    link: "https://github.com/PrensDev",
+                    name: "Github"
+                }
+            ]
         },
-        summary: "Hello World! I am Jetsun Prince Torres. I am an aspirant Filipino Web Developer, Designer, and Programmer.",
+        summary: "Hello World! I am Jetsun Prince Torres. I am an aspirant Filipino Full Stack Developer, Web Designer, and Programmer. I build innovative, integrative, and modern technologies that provide solutions for real-world problems. Became a team leader and cooperative team member that successfully organize tasks, was time-efficient, productive, successfully achieve objectives on time, and sometimes produce higher quality results than expected.",
         experiences: [
             {
                 id: 1,

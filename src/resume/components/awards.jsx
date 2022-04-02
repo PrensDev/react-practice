@@ -6,12 +6,9 @@ class Awards extends Component {
 
     getAwards = () => {
         const { awards } = this.props;
-        if(!awards || awards.length === 0)
-            return (
-                <div className="text-center small text-secondary fst-italic p-3">This section is empty and won’t appear in your resume.</div>
-            )
-        else
-            return awards.map((a, i) =>
+        return (!awards || awards.length === 0)
+            ? <div className="text-center small text-muted fst-italic p-3">This section is empty and won’t appear in your resume.</div>
+            : awards.map((a, i) =>
                 <div key={i} className="d-flex justify-content-between my-3">
                     <div>
                         <FontAwesomeIcon icon={ solid('award') } className="text-secondary" />

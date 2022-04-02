@@ -6,7 +6,10 @@ class Skills extends Component {
     
     getSkills = () => {
         const { skills } = this.props;
-        if(skills && skills.length > 0) {
+
+        if(!skills || skills.length === 0)
+            return <div className="text-center small text-secondary fst-italic p-3">This section is empty and won’t appear in your resume.</div>
+        else {
             const skillsElements = () => {
                 return skills.map((s, i) =>
                     <span key={i}>
@@ -25,9 +28,7 @@ class Skills extends Component {
                     </div>
                 </div>
             )
-        } else return (
-            <div className="text-center small text-secondary fst-italic p-3">This section is empty and won’t appear in your resume.</div>
-        )
+        }
     }
 
     render() { 

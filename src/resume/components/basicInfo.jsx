@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
-import $ from'jquery';
+import $ from 'jquery';
 import bootstrapBundleMin from 'bootstrap/dist/js/bootstrap.bundle.min';
 
 class BasicInfo extends Component {
@@ -27,8 +27,19 @@ class BasicInfo extends Component {
             : <span className="text-secondary">[Your contact number will appear here]</span>
     }
 
+    getApplicantLinks = () => {
+        const { links } = this.props.applicant || false;
+        return !links
+            ? <span className="text-secondary">[Your links will appear here]</span>
+            : links.map((l,i) => 
+                <div key={i}>
+                    <a href={ l.link } target="_blank" rel="noreferrer" >[{ l.name }] { l.link }</a>
+                </div>
+            )
+    }
+
     editApplicantInfo = () => {
-        var modal = new bootstrapBundleMin.Modal(document.getElementById('updateBasicInfo-Modal'));
+        var modal = new bootstrapBundleMin.Modal($('#updateBasicInfo-Modal'));
         modal.show();
     }
 
@@ -60,8 +71,20 @@ class BasicInfo extends Component {
 
                     {/* Phone Number */}
                     <div className="col-md-6">
-                        <FontAwesomeIcon icon={ solid('phone-alt') } className="text-secondary mr-2"fixedWidth />
+                        <FontAwesomeIcon icon={ solid('phone') } className="text-secondary mr-2"fixedWidth />
                         { this.getApplicantContactNumber() }
+                    </div>
+
+                    {/* Links */}
+                    <div className="col-12">
+                        <div className="d-flex align-items-start">
+                            <div>
+                                <FontAwesomeIcon icon={ solid('globe') } className="text-secondary mr-2"fixedWidth />
+                            </div>
+                            <div className="flex-grow-1">
+                                { this.getApplicantLinks() }
+                            </div>
+                        </div>
                     </div>
 
                 </div>

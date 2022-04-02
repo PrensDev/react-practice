@@ -7,12 +7,9 @@ class Licenses extends Component {
     getLicences = () => {
         const { licenses } = this.props || [];
 
-        if(!licenses || licenses.length === 0)
-            return (
-                <div className="text-center small text-secondary fst-italic p-3">This section is empty and won’t appear in your resume.</div>
-            )
-        else
-            return licenses.map((l, i) => 
+        return (!licenses || licenses.length === 0)
+            ? <div className="text-center small text-muted fst-italic p-3">This section is empty and won’t appear in your resume.</div>
+            : licenses.map((l, i) => 
                 <div key={ i } className="d-flex justify-content-between my-3">
                     <div>
                         <FontAwesomeIcon icon={ solid('certificate') } className="text-secondary" />
