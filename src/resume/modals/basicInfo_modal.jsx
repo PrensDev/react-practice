@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 
-class BasicInfo_Modal extends Component {
+class BasicInfoModal extends Component {
     
     validateForm = (e) => {
         e.preventDefault();
@@ -109,4 +109,4 @@ class BasicInfo_Modal extends Component {
     }
 }
 
-export default BasicInfo_Modal;
+export default BasicInfoModal;

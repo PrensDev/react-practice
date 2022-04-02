@@ -1,19 +1,27 @@
 import React, { Component } from 'react';
 
-import BasicInfo_Modal from './basicInfo_modal';
-import Summary_Modal from './summary_modal';
-import Experiences_Modal from './experiences_modal';
-import Education_Modal from './education_modal';
+import BasicInfoModal from './basicInfo_modal';
+import SummaryModal from './summary_modal';
+import ExperiencesModal from './experiences_modal';
+import EducationModal from './education_modal';
+import LicensesModal from './licenses_modal';
+import SkillsModal from './skills_modal';
+import AwardsModal from './awards_modal';
+import ConfirmationModal from './confirmation_modal';
 
 class Modals extends Component {
     state = {  } 
     render() { 
         return (
             <>
-                <BasicInfo_Modal />
-                <Summary_Modal />
-                <Experiences_Modal />
-                <Education_Modal />
+                <BasicInfoModal />
+                <SummaryModal />
+                <ExperiencesModal />
+                <EducationModal />
+                <LicensesModal />
+                <SkillsModal />
+                <AwardsModal />
+                <ConfirmationModal />
             </>
         );
     }

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 
-class Education_Modal extends Component {
+class EducationModal extends Component {
     render() { 
         return (
             <>
@@ -249,4 +249,4 @@ class Education_Modal extends Component {
     }
 }
 
-export default Education_Modal;
+export default EducationModal;

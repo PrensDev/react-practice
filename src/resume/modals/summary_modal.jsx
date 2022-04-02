@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 
-class Summary_Modal extends Component {
+class SummaryModal extends Component {
     validateForm = (e) => {
         e.preventDefault();
         alert('Submitted')
@@ -53,4 +53,4 @@ class Summary_Modal extends Component {
     }
 }
 
-export default Summary_Modal;
+export default SummaryModal;

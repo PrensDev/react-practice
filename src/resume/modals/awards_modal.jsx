@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 
-class ExperiencesModal extends Component {
+class AwardsModal extends Component {
     render() { 
         return (
             <>
-                {/* Add Experience Moda */}
-                <div className="modal" id="addExperience-Modal">
+                {/* Add Award Modal */}
+                <div className="modal" id="addAward-Modal">
                     <div className="modal-dialog modal-lg modal-dialog-scrollable">
                         <form className="modal-content" id="addExperience-Form" onSubmit={ this.validateForm }>
                             
@@ -149,15 +149,15 @@ class ExperiencesModal extends Component {
                     </div>
                 </div>
 
-                {/* Edit Experience Modal */}
-                <div className="modal" id="editExperience-Modal">
+                {/* Edit Award Modal */}
+                <div className="modal" id="editAward-Modal">
                     <div className="modal-dialog modal-lg modal-dialog-scrollable">
                         <form className="modal-content" id="editExperience-Form" onSubmit={ this.validateForm }>
                             
                             <div className="modal-header">
                                 <h5 className="modal-title" id="exampleModalLabel">
                                     <FontAwesomeIcon icon={ solid('pen') } className="text-secondary" fixedWidth />
-                                    <span>Edit experience</span>
+                                    <span>Edit your basic information</span>
                                 </h5>
                                 <button type="button" className="btn btn-light btn-sm" data-bs-dismiss="modal">
                                     <FontAwesomeIcon icon={ solid('times') } />
@@ -249,4 +249,4 @@ class ExperiencesModal extends Component {
     }
 }
 
-export default ExperiencesModal;
+export default AwardsModal;
