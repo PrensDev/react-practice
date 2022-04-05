@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
-import Resume from './resume/resume';
+import { Routes, Route } from 'react-router-dom'
+
+// Layouts
+import Navbar from './layouts/navbar';
 import Footer from './layouts/footer';
-import Modals from './resume/modals/modals';
+
+// Pages
+import Home from './pages/Home';
+import Resume from './pages/resume/Resume';
+import About from './pages/About';
 
 class App extends Component {
   componentDidMount() {
@@ -11,9 +18,15 @@ class App extends Component {
   render() {
     return (
       <>
-        <Resume />
+        <Navbar />
+        
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/resume" element={<Resume />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+        
         <Footer />
-        <Modals />
       </>
     );
   }

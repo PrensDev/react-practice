@@ -13,6 +13,8 @@ import Licenses from './components/licenses';
 import Skills from './components/skills';
 import Awards from './components/awards';
 
+import Modals from './modals/modals';
+
 
 class Resume extends Component {
     state = { 
@@ -95,49 +97,57 @@ class Resume extends Component {
         ]
     }
 
-    // state = {}
+    componentDidMount() {
+        alert("Test")
+    }
 
     render() { 
         return (
-            <div className="bg-light py-3">
-                <div className="container-lg">
-                    <div className="row justify-content-center">
-                        <div className="col-md-10">
+            <> 
+                {/* Resume Component */}
+                <div className="bg-light py-3">
+                    <div className="container-lg">
+                        <div className="row justify-content-center">
+                            <div className="col-md-10">
 
-                            {/* Resume Document */}
-                            <div className="p-5 bg-white shadow-sm rounded">
-                                <BasicInfo applicant={ this.state.applicant } />
-                                <hr className="my-4" />
-                                <Summary summary={ this.state.summary }/>
-                                <hr className="my-4" />
-                                <Experiences experiences={ this.state.experiences } />
-                                <hr className="my-4" />
-                                <Education education={ this.state.education } />
-                                <hr className="my-4" />
-                                <Licenses licenses={ this.state.licenses }/>
-                                <hr className="my-4" />
-                                <Skills skills={ this.state.skills }/>
-                                <hr className="my-4" />
-                                <Awards awards={ this.state.awards } />
+                                {/* Resume Document */}
+                                <div className="p-5 bg-white shadow-sm rounded">
+                                    <BasicInfo applicant={ this.state.applicant } />
+                                    <hr className="my-4" />
+                                    <Summary summary={ this.state.summary }/>
+                                    <hr className="my-4" />
+                                    <Experiences experiences={ this.state.experiences } />
+                                    <hr className="my-4" />
+                                    <Education education={ this.state.education } />
+                                    <hr className="my-4" />
+                                    <Licenses licenses={ this.state.licenses }/>
+                                    <hr className="my-4" />
+                                    <Skills skills={ this.state.skills }/>
+                                    <hr className="my-4" />
+                                    <Awards awards={ this.state.awards } />
+                                </div>
+
+                                {/* Action Buttons */}
+                                <div className="text-center mt-3">
+                                    <button className="btn btn-danger">
+                                        <FontAwesomeIcon icon={ solid('sync-alt') } fixedWidth />
+                                        <span>Reset</span>
+                                    </button>
+                                    <span className="mx-2"></span>
+                                    <button className="btn btn-primary">
+                                        <span>Submit</span>
+                                        <FontAwesomeIcon icon={ solid('check') } fixedWidth />
+                                    </button>
+                                </div>
+
                             </div>
-
-                            {/* Action Buttons */}
-                            <div className="text-center mt-3">
-                                <button className="btn btn-danger">
-                                    <FontAwesomeIcon icon={ solid('sync-alt') } fixedWidth />
-                                    <span>Reset</span>
-                                </button>
-                                <span className="mx-2"></span>
-                                <button className="btn btn-primary">
-                                    <span>Submit</span>
-                                    <FontAwesomeIcon icon={ solid('check') } fixedWidth />
-                                </button>
-                            </div>
-
                         </div>
                     </div>
                 </div>
-            </div>
+
+                {/* Resume Modals */}
+                <Modals />
+            </>
         );
     }
 }
