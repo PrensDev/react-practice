@@ -14,7 +14,11 @@ class Experiences extends Component {
             : experiences.map(e =>
                 <div key={ e.id } className="d-flex justify-content-between align-items-start my-3">
                     <div>
-                        <FontAwesomeIcon icon={ solid('file-alt') }  className="text-secondary" />
+                        <FontAwesomeIcon 
+                            icon={ solid('file-alt') }  
+                            className="text-secondary me-2" 
+                            fixedWidth
+                        />
                     </div>
                     <div className="flex-grow-1">
                         <div className="fw-bold">{ e.title }</div>

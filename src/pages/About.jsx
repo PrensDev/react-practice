@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 
 class About extends Component {
+    componentDidMount() {
+        document.title = "About - Made by PrensDev"
+    }
+
     render() {
         return (
             <>

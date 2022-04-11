@@ -21,7 +21,11 @@ class Skills extends Component {
             return (
                 <div className="d-flex justify-content-between align-items-start my-3">
                     <div className="">
-                        <FontAwesomeIcon icon={ solid('check-double') } className="text-secondary" />
+                        <FontAwesomeIcon 
+                            icon={ solid('check-double') } 
+                            className="text-secondary me-2" 
+                            fixedWidth
+                        />
                     </div>
                     <div className="flex-grow-1">
                         { skillsElements() }

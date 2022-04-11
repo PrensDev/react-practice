@@ -12,7 +12,11 @@ class Licenses extends Component {
             : licenses.map((l, i) => 
                 <div key={ i } className="d-flex justify-content-between my-3">
                     <div>
-                        <FontAwesomeIcon icon={ solid('certificate') } className="text-secondary" />
+                        <FontAwesomeIcon 
+                            icon={ solid('certificate') } 
+                            className="text-secondary me-2"
+                            fixedWidth 
+                        />
                     </div>
                     <div className="flex-grow-1">
                         <div className="fw-bold">{ l.name }</div>

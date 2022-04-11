@@ -11,7 +11,11 @@ class Awards extends Component {
             : awards.map((a, i) =>
                 <div key={i} className="d-flex justify-content-between my-3">
                     <div>
-                        <FontAwesomeIcon icon={ solid('award') } className="text-secondary" />
+                        <FontAwesomeIcon 
+                            icon={ solid('award') } 
+                            className="text-secondary me-2" 
+                            fixedWidth
+                        />
                     </div>
                     <div className="flex-grow-1">
                         <div className="fw-bold">{ a.name }</div>

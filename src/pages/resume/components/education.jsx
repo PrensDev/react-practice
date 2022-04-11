@@ -12,7 +12,11 @@ class Education extends Component {
             : education.map((e, i) => 
                 <div className="d-flex align-items-start my-3" key={ i }>
                     <div>
-                        <FontAwesomeIcon icon={ solid('graduation-cap') } className="text-secondary" />
+                        <FontAwesomeIcon 
+                            icon={ solid('graduation-cap') } 
+                            className="text-secondary me-2" 
+                            fixedWidth
+                        />
                     </div>
                     <div className="flex-grow-1">
 

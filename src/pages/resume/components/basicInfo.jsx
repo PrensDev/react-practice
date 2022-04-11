@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
-import $ from 'jquery';
-import bootstrapBundleMin from 'bootstrap/dist/js/bootstrap.bundle.min';
+import { Button } from 'react-bootstrap';
 
 class BasicInfo extends Component {
     
@@ -38,12 +37,7 @@ class BasicInfo extends Component {
             )
     }
 
-    editApplicantInfo = () => {
-        var modal = new bootstrapBundleMin.Modal($('#updateBasicInfo-Modal'));
-        modal.show();
-    }
-
-    render() { 
+    render() {
         return (
             <> 
                 <div className="d-flex justify-content-between">
@@ -55,9 +49,13 @@ class BasicInfo extends Component {
 
                     {/* Edit Applicant Info */}
                     <div>
-                        <button className="btn btn-sm btn-outline-secondary" onClick={ this.editApplicantInfo }>
+                        <Button 
+                            variant="outline-secondary" 
+                            size="sm"
+                            onClick={ this.props.showModal }
+                        >
                             <FontAwesomeIcon icon={ solid('edit') } />
-                        </button>
+                        </Button>
                     </div>
                 </div>
 
@@ -65,13 +63,21 @@ class BasicInfo extends Component {
                     
                     {/* Email */}
                     <div className="col-md-6">
-                        <FontAwesomeIcon icon={ solid('envelope') } className="text-secondary mr-2" fixedWidth />
+                        <FontAwesomeIcon 
+                            icon={ solid('envelope') } 
+                            className="text-secondary me-2" 
+                            fixedWidth 
+                        />
                         { this.getApplicantEmail() }
                     </div>
 
                     {/* Phone Number */}
                     <div className="col-md-6">
-                        <FontAwesomeIcon icon={ solid('phone') } className="text-secondary mr-2"fixedWidth />
+                        <FontAwesomeIcon 
+                            icon={ solid('phone') } 
+                            className="text-secondary me-2"
+                            fixedWidth 
+                        />
                         { this.getApplicantContactNumber() }
                     </div>
 
@@ -79,7 +85,11 @@ class BasicInfo extends Component {
                     <div className="col-12">
                         <div className="d-flex align-items-start">
                             <div>
-                                <FontAwesomeIcon icon={ solid('globe') } className="text-secondary mr-2"fixedWidth />
+                                <FontAwesomeIcon 
+                                    icon={ solid('globe') } 
+                                    className="text-secondary me-2"
+                                    fixedWidth 
+                                />
                             </div>
                             <div className="flex-grow-1">
                                 { this.getApplicantLinks() }

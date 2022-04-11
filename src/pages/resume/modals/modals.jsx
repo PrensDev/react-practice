@@ -10,18 +10,43 @@ import AwardsModal from './awards_modal';
 import ConfirmationModal from './confirmation_modal';
 
 class Modals extends Component {
-    state = {  } 
     render() { 
+
+        const { modalStates, hideModal } = this.props;
         return (
             <>
-                <BasicInfoModal />
-                <SummaryModal />
-                <ExperiencesModal />
-                <EducationModal />
-                <LicensesModal />
-                <SkillsModal />
-                <AwardsModal />
-                <ConfirmationModal />
+                <BasicInfoModal 
+                    modalState={ modalStates.basicInfo } 
+                    hideModal={ modalstate => hideModal(modalstate) }
+                />
+                <SummaryModal 
+                    modalState={ modalStates.showSummaryModal } 
+                    hideModal={ modalstate => hideModal(modalstate) }
+                />
+                <ExperiencesModal 
+                    modalState={ modalStates.showExperienceModal } 
+                    hideModal={ modalstate => hideModal(modalstate) }
+                />
+                <EducationModal 
+                    modalState={ modalStates.showEducationModal } 
+                    hideModal={ modalstate => hideModal(modalstate) }
+                />
+                <LicensesModal 
+                    modalState={ modalStates.showLicensesModal } 
+                    hideModal={ modalstate => hideModal(modalstate) }
+                />
+                <SkillsModal 
+                    modalState={ modalStates.showSkillsModal } 
+                    hideModal={ modalstate => hideModal(modalstate) }
+                />
+                <AwardsModal 
+                    modalState={ modalStates.showAwardsModal } 
+                    hideModal={ modalstate => hideModal(modalstate) }
+                />
+                <ConfirmationModal 
+                    modalState={ modalStates.showConfirmationModal } 
+                    hideModal={ modalstate => hideModal(modalstate) }
+                />
             </>
         );
     }

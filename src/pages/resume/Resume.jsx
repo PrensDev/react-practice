@@ -17,91 +17,111 @@ import Modals from './modals/modals';
 
 
 class Resume extends Component {
+    
+    /**
+     * Single Source of Truth
+     */
     state = { 
-        applicant: {
-            first_name: "Jetsun Prince",
-            middle_name: "P.",
-            last_name: "Torres",
-            email: "jetsunprincetorres@sample.com",
-            contact_number: "09123456789",
-            links: [
+        resumeData: {
+            applicant: {
+                first_name: "Jetsun Prince",
+                middle_name: "P.",
+                last_name: "Torres",
+                email: "jetsunprincetorres@sample.com",
+                contact_number: "09123456789",
+                links: [
+                    {
+                        id: 1,
+                        link: "https://www.linkedin.com/in/jetsunprince/",
+                        name: "LinkedIn"
+                    }, {
+                        id: 2,
+                        link: "https://github.com/PrensDev",
+                        name: "Github"
+                    }
+                ]
+            },
+            summary: "Hello World! I am Jetsun Prince Torres. I am an aspirant Filipino Full Stack Developer, Web Designer, and Programmer. I build innovative, integrative, and modern technologies that provide solutions for real-world problems. Became a team leader and cooperative team member that successfully organize tasks, was time-efficient, productive, successfully achieve objectives on time, and sometimes produce higher quality results than expected.",
+            experiences: [
                 {
                     id: 1,
-                    link: "https://www.linkedin.com/in/jetsunprince/",
-                    name: "LinkedIn"
+                    title: "Web Developer",
+                    company: "Tesla Company"
                 }, {
                     id: 2,
-                    link: "https://github.com/PrensDev",
-                    name: "Github"
+                    title: "Software Qualify Assurance/Tester",
+                    company: "Tesla Company"
+                }
+            ],
+            education: [
+                {
+                    id: 1,
+                    school: "Bignay National High School",
+                }, {
+                    id: 2,
+                    school: "Our Lady of Fatima University",
+                    degree: "High School Graduate"
+                }, {
+                    id: 3,
+                    school: "Polytechnic University of the Philippines",
+                    degree: "Bachelor of Science in Information Technology"
+                }
+            ],
+            licenses: [
+                {
+                    id: 1,
+                    name: "Cisco Certified Network Associate Security"
+                }, {
+                    id: 2,
+                    name: "Cisco Certified Network Associate Security"
+                }
+            ],
+            skills: [
+                {
+                    id: 1,
+                    name: 'Web Development'
+                }, {
+                    id: 2, 
+                    name: 'UI/UX Designer'
+                }, {
+                    id: 3,
+                    name: 'Programmer'
+                }, {
+                    id: 4,
+                    name: 'Quality Assurance/Tester'
+                }, {
+                    id: 5,
+                    name: 'Database Administrator'
+                }
+            ],
+            awards: [
+                {
+                    id: 1,
+                    name: "Cum Laude"
                 }
             ]
         },
-        summary: "Hello World! I am Jetsun Prince Torres. I am an aspirant Filipino Full Stack Developer, Web Designer, and Programmer. I build innovative, integrative, and modern technologies that provide solutions for real-world problems. Became a team leader and cooperative team member that successfully organize tasks, was time-efficient, productive, successfully achieve objectives on time, and sometimes produce higher quality results than expected.",
-        experiences: [
-            {
-                id: 1,
-                title: "Web Developer",
-                company: "Tesla Company"
-            }, {
-                id: 2,
-                title: "Software Qualify Assurance/Tester",
-                company: "Tesla Company"
-            }
-        ],
-        education: [
-            {
-                id: 1,
-                school: "Bignay National High School",
-            }, {
-                id: 2,
-                school: "Our Lady of Fatima University",
-                degree: "High School Graduate"
-            }, {
-                id: 3,
-                school: "Polytechnic University of the Philippines",
-                degree: "Bachelor of Science in Information Technology"
-            }
-        ],
-        licenses: [
-            {
-                id: 1,
-                name: "Cisco Certified Network Associate Security"
-            }, {
-                id: 2,
-                name: "Cisco Certified Network Associate Security"
-            }
-        ],
-        skills: [
-            {
-                id: 1,
-                name: 'Web Development'
-            }, {
-                id: 2, 
-                name: 'UI/UX Designer'
-            }, {
-                id: 3,
-                name: 'Programmer'
-            }, {
-                id: 4,
-                name: 'Quality Assurance/Tester'
-            }, {
-                id: 5,
-                name: 'Database Administrator'
-            }
-        ],
-        awards: [
-            {
-                id: 1,
-                name: "Cum Laude"
-            }
-        ]
+        modalStates: {
+            basicInfo: false,
+            summary: false
+        }
     }
 
     componentDidMount() {
-        alert("Test")
+        document.title = "Resume Builder - Made by PrensDev"
+    }
+
+    toggleModal = (modalState) => {
+        this.setState({ modalStates: modalState })
     }
 
     render() { 
+
+        const { 
+            resumeData, 
+            modalStates 
+        } = this.state;
+
         return (
             <> 
                 {/* Resume Component */}
@@ -112,19 +132,38 @@ class Resume extends Component {
 
                                 {/* Resume Document */}
                                 <div className="p-5 bg-white shadow-sm rounded">
-                                    <BasicInfo applicant={ this.state.applicant } />
+                                    
+                                    {/* Basic Info */}
+                                    <BasicInfo 
+                                        applicant={ resumeData.applicant } 
+                                        showModal={ () => this.toggleModal({ basicInfo: true }) } 
+                                        // hideModal={ () => }
+                                    />
+                                    
+                                    <hr className="my-4" onClick={ () => this.toggleModal({ basicInfo: true }) } />
+                                    
+                                    {/* Summary */}
+                                    <Summary summary={ resumeData.summary }/>
+                                    
                                     <hr className="my-4" />
-                                    <Summary summary={ this.state.summary }/>
+                                    
+                                    <Experiences experiences={ resumeData.experiences } />
+                                    
                                     <hr className="my-4" />
-                                    <Experiences experiences={ this.state.experiences } />
+                                    
+                                    <Education education={ resumeData.education } />
+                                    
                                     <hr className="my-4" />
-                                    <Education education={ this.state.education } />
+                                    
+                                    <Licenses licenses={ resumeData.licenses }/>
+                                    
                                     <hr className="my-4" />
-                                    <Licenses licenses={ this.state.licenses }/>
+                                    
+                                    <Skills skills={ resumeData.skills }/>
+                                    
                                     <hr className="my-4" />
-                                    <Skills skills={ this.state.skills }/>
-                                    <hr className="my-4" />
-                                    <Awards awards={ this.state.awards } />
+                                    
+                                    <Awards awards={ resumeData.awards } />
                                 </div>
 
                                 {/* Action Buttons */}
@@ -146,7 +185,10 @@ class Resume extends Component {
                 </div>
 
                 {/* Resume Modals */}
-                <Modals />
+                <Modals 
+                    modalStates={ modalStates } 
+                    hideModal={ modalState => this.toggleModal(modalState)  }
+                />
             </>
         );
     }
