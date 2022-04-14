@@ -7,7 +7,7 @@ class BasicInfo extends Component {
     
     getApplicantName = () => {
         const { applicant } = this.props;
-        return applicant
+        return applicant && applicant.first_name && applicant.last_name
             ? <h2 className="text-uppercase">{ applicant.first_name } { applicant.middle_name } { applicant.last_name }</h2>
             : <h2 className="text-uppercase text-secondary">[Your Full Name]</h2>
     }
@@ -43,7 +43,7 @@ class BasicInfo extends Component {
                 <div className="d-flex justify-content-between">
 
                     {/* Applicant Name */}
-                    <div>
+                    <div className="me-1">
                         { this.getApplicantName() }
                     </div>
 

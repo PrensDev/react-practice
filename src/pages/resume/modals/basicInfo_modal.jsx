@@ -13,15 +13,17 @@ class BasicInfoModal extends Component {
     }
 
     render() { 
-        const { modalState } = this.props;
+        const { data, modalState, updateApplicantInfo } = this.props;
+
+        const { first_name, middle_name, last_name, suffix_name, email, contact_number} = data;
 
         const initialValues = {
-            firstName: "",
-            middleName: "",
-            lastName: "",
-            suffixName: "",
-            email: "",
-            contactNumber: ""
+            firstName: first_name,
+            middleName: middle_name,
+            lastName: last_name,
+            suffixName: suffix_name,
+            email: email,
+            contactNumber: contact_number
         }
         
         const validate = Yup.object({
@@ -34,20 +36,34 @@ class BasicInfoModal extends Component {
             email: Yup.string()
                 .email("You typed an invalid email address")
                 .required("Your email is required"),
-            contactNumber: Yup.number()
-                .positive("That is not a valid contact number")
-                .integer("That is not a valid contact number")
+            contactNumber: Yup.string()
                 .required("Your contact number is required")
         });
 
         const onSubmit = (values, actions) => {
+            const {
+                firstName,
+                middleName,
+                lastName,
+                suffixName,
+                email,
+                contactNumber
+            } = values;
+
             setTimeout(() => {
-                console.log(JSON.stringify(values, null, 2));
+                updateApplicantInfo({
+                    first_name: firstName,
+                    middle_name: middleName,
+                    last_name: lastName,
+                    suffix_name: suffixName,
+                    email: email,
+                    contact_number: contactNumber
+                })
                 actions.setSubmitting(false);
                 this.onHideModal(actions);
             }, 500);
         }
-        
+
         return (
             <Formik
                 initialValues={ initialValues }
@@ -93,7 +109,7 @@ class BasicInfoModal extends Component {
                                         <FormGroup
                                             label="First name"
                                             isRequired
-                                            id="firstName"
+                                            id="resume__firstName"
                                             name="firstName"
                                             placeholder="ex. Juan"
                                             formikProps={ props }
@@ -104,7 +120,7 @@ class BasicInfoModal extends Component {
                                     <div className="col-lg-6">
                                         <FormGroup
                                             label="Middle name"
-                                            id="middleName"
+                                            id="resume__middleName"
                                             name="middleName"
                                             placeholder="ex. Pedro"
                                             formikProps={ props }
@@ -116,7 +132,7 @@ class BasicInfoModal extends Component {
                                         <FormGroup
                                             label="Last name"
                                             isRequired
-                                            id="lastName"
+                                            id="resume__lastName"
                                             name="lastName"
                                             placeholder="ex. Dela Cruz"
                                             formikProps={ props }
@@ -127,7 +143,7 @@ class BasicInfoModal extends Component {
                                     <div className="col-lg-6">
                                         <FormGroup
                                             label="Suffix/Extension name"
-                                            id="suffixName"
+                                            id="resume__suffixName"
                                             name="suffixName"
                                             placeholder="ex. Jr., III"
                                             formikProps={ props }
@@ -141,7 +157,7 @@ class BasicInfoModal extends Component {
                                         label="Email"
                                         isRequired
                                         inputType="email"
-                                        id="email"
+                                        id="resume__email"
                                         name="email"
                                         placeholder="ex. juandelacruz@sample.com"
                                         formikProps={ props }
@@ -153,8 +169,8 @@ class BasicInfoModal extends Component {
                                     <FormGroup
                                         label="Contact Number"
                                         isRequired
-                                        inputType="number"
-                                        id="contactNumber"
+                                        inputType="text"
+                                        id="resume__contactNumber"
                                         name="contactNumber"
                                         placeholder="ex. (123) 456-7890"
                                         formikProps={ props }
@@ -170,9 +186,16 @@ class BasicInfoModal extends Component {
                             >
                                 <span>Cancel</span>
                             </Button>
-                            <Button variant="primary" onClick={ props.handleSubmit }>
+                            <Button 
+                                variant="primary" 
+                                onClick={ props.handleSubmit }
+                            >
                                 <span>Save</span>
-                                <FontAwesomeIcon icon={ solid('check') } fixedWidth />
+                                <FontAwesomeIcon 
+                                    icon={ solid('check') } 
+                                    className="ms-1" 
+                                    fixedWidth 
+                                />
                             </Button>
                         </Modal.Footer>
                     </Modal>

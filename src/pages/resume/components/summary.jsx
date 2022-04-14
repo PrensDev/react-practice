@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 import $ from 'jquery';
 import bootstrapBundleMin from 'bootstrap/dist/js/bootstrap.bundle.min';
+import { Button } from 'react-bootstrap'
 
 class Summary extends Component {
 
@@ -24,9 +25,13 @@ class Summary extends Component {
                 <div className="d-flex justify-content-between align-items-center">
                     <h5 className="m-0">Summary</h5>
                     <div>
-                        <button className="btn btn-sm btn-outline-secondary" onClick={ this.editSummary }>
+                        <Button 
+                            variant="outline-secondary" 
+                            size="sm" 
+                            onClick={ this.editSummary }
+                        >
                             <FontAwesomeIcon icon={ solid('edit') } />
-                        </button>
+                        </Button>
                     </div>
                 </div>
 

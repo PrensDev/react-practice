@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Form } from 'react-bootstrap';
 
 class FormGroup extends Component {
     render() { 
@@ -14,18 +15,17 @@ class FormGroup extends Component {
         } = this.props;
 
         return (
-            <div className="mb-1">
+            <Form.Group className="mb-1" controlId={ id }>
                 {/* Label */}
-                <label htmlFor={ id } className="fw-bold">
+                <Form.Label className="fw-bold">
                     <span>{ label }</span>
                     { isRequired && <span className="text-danger ms-1">*</span> }
-                </label>
+                </Form.Label>
 
                 {/* Input */}
-                <input 
+                <Form.Control 
                     type={ inputType } 
                     name={ name }
-                    id={ id } 
                     className={ `form-control${ formikProps.touched[name] && formikProps.errors[name] ? " is-invalid" : "" }` } 
                     placeholder={ placeholder } 
                     onChange={ formikProps.handleChange }
@@ -39,10 +39,10 @@ class FormGroup extends Component {
                 {/* Error Validation Message */}
                 {
                     formikProps.touched[name] && formikProps.errors[name] 
-                        ? <div className="invalid-feedback">{ `${ formikProps.errors[name] }.`}</div>
+                        ? <Form.Control.Feedback type="invalid">{ `${ formikProps.errors[name] }.`}</Form.Control.Feedback>
                         : null
                 }
-            </div>
+            </Form.Group>
         );
     }
 }

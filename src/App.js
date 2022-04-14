@@ -11,10 +11,6 @@ import Resume from './pages/resume/Resume';
 import About from './pages/About';
 
 class App extends Component {
-  componentDidMount() {
-    document.title = "Resume Builder using React - Made by PrensDev"
-  }
-
   render() {
     return (
       <>

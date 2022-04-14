@@ -1,5 +1,16 @@
+// React
 import React, { Component } from 'react';
+
+// Bootstrap
+import {
+    Modal,
+    Form,
+    Button
+} from 'react-bootstrap';
+
+// FontAwesomeIcon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 
 class SummaryModal extends Component {
@@ -10,45 +21,57 @@ class SummaryModal extends Component {
 
     render() { 
         return (
-            <div className="modal" id="updateSummary-Modal">
-                <div className="modal-dialog modal-lg modal-dialog-scrollable">
-                    <form className="modal-content" id="updateSummary-Form" onSubmit={ this.validateForm }>
-                        
-                        <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">
-                                <FontAwesomeIcon icon={ solid('pen') } className="text-secondary" fixedWidth />
-                                <span>Edit your resume summary</span>
-                            </h5>
-                            <button type="button" className="btn btn-light btn-sm" data-bs-dismiss="modal">
-                                <FontAwesomeIcon icon={ solid('times') } />
-                            </button>
-                        </div>
-                        
-                        <div className="modal-body">
-                            <p className="fw-bold">Please fill up the following required fields:</p>
+            <Modal size="lg">
+                <Modal.Header>
+                    <h5 className="modal-title">
+                        <FontAwesomeIcon 
+                            icon={ solid('pen') }
+                            className="text-secondary me-1" 
+                            fixedWidth 
+                        />
+                        <span>Edit your resume summary</span>
+                    </h5>
+                    <Button 
+                        variant="light" 
+                        size="sm"
+                    >
+                        <FontAwesomeIcon icon={ solid('times') } />
+                    </Button>
+                </Modal.Header>
+                
+                <Modal.Body>
+                    <Form>
+                        <p className="fw-bold">Please fill up the following required fields:</p>
 
-                            {/* Summary Field */}
-                            <div className="mb-3">
-                                <label htmlFor="summary" className="fw-bold">
-                                    <span>Summary</span>
-                                    <span className="text-danger">*</span>
-                                </label>
-                                <textarea className="form-control" id="summary" name="summary" rows="8" placeholder="Briefly describe about yourself here ..."></textarea>
-                            </div>
-                        </div>
+                        {/* Summary Field */}
+                        <Form.Group className="mb-3" controlId="resume__summary">
+                            <Form.Label className="fw-bold">
+                                <span>Summary</span>
+                                <span className="text-danger ms-1">*</span>
+                            </Form.Label>
+                            <Form.Control
+                                as="textarea"
+                                rows={ 8 }
+                                placeholder="Briefly describe something about you ..."
+                            ></Form.Control>
+                        </Form.Group>
+                    </Form>
+                </Modal.Body>
 
-                        <div className="modal-footer">
-                            <button type="button" className="btn btn-light" data-bs-dismiss="modal">
-                                <span>Cancel</span>
-                            </button>
-                            <button type="submit" className="btn btn-primary">
-                                <span>Save</span>
-                                <FontAwesomeIcon icon={ solid('check') } fixedWidth />
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+                <Modal.Footer>
+                    <Button variant="light">
+                        <span>Cancel</span>
+                    </Button>
+                    <Button variant="primary">
+                        <span>Save</span>
+                        <FontAwesomeIcon 
+                            icon={ solid('check') } 
+                            className="ms-1"
+                            fixedWidth 
+                        />
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         );
     }
 }

@@ -12,12 +12,14 @@ import ConfirmationModal from './confirmation_modal';
 class Modals extends Component {
     render() { 
 
-        const { modalStates, hideModal } = this.props;
+        const { resumeData, modalStates, hideModal, updateApplicantInfo } = this.props;
         return (
             <>
                 <BasicInfoModal 
+                    data={ resumeData.applicant }
                     modalState={ modalStates.basicInfo } 
                     hideModal={ modalstate => hideModal(modalstate) }
+                    updateApplicantInfo={ applicant => updateApplicantInfo(applicant) }
                 />
                 <SummaryModal 
                     modalState={ modalStates.showSummaryModal } 

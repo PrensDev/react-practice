@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Modal, Button, Form } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 
@@ -11,130 +12,136 @@ class ExperiencesModal extends Component {
                     <div className="modal-dialog modal-lg modal-dialog-scrollable">
                         <form className="modal-content" id="addExperience-Form" onSubmit={ this.validateForm }>
                             
-                            <div className="modal-header">
+                            <Modal.Header>
                                 <h5 className="modal-title" id="exampleModalLabel">
-                                    <FontAwesomeIcon icon={ solid('file-alt') } className="text-secondary" fixedWidth />
+                                    <FontAwesomeIcon 
+                                        icon={ solid('file-alt') } 
+                                        className="text-secondary me-1" 
+                                        fixedWidth 
+                                    />
                                     <span>Add experience</span>
                                 </h5>
-                                <button type="button" className="btn btn-light btn-sm" data-bs-dismiss="modal">
+                                <Button variant="light" size="sm">
                                     <FontAwesomeIcon icon={ solid('times') } />
-                                </button>
-                            </div>
+                                </Button>
+                            </Modal.Header>
                             
-                            <div className="modal-body">
-                                <p className="fw-bold">Please fill up the following required fields:</p>
+                            <Modal.Body>
+                                <Form>
+                                    <p className="fw-bold">Please fill up the following required fields:</p>
 
-                                {/* Title */}
-                                <div className="mb-3">
-                                    <label htmlFor="addExperience_title" className="fw-bold">
-                                        <span>Title</span>
-                                        <span className="text-danger">*</span>
-                                    </label>
-                                    <input 
-                                        type="text" 
-                                        className="form-control" 
-                                        id="addExperience_title" 
-                                        name="title" 
-                                        placeholder="Insert title here" 
-                                    />
-                                </div>
-
-                                {/* Company */}
-                                <div className="mb-3">
-                                    <label htmlFor="addExperience_company" className="fw-bold">
-                                        <span>Company</span>
-                                        <span className="text-danger">*</span>
-                                    </label>
-                                    <input 
-                                        type="text" 
-                                        className="form-control" 
-                                        id="addExperience_company" 
-                                        name="company" 
-                                        placeholder="Insert company here" 
-                                    />
-                                </div>
-
-                                {/* Month and Year Started */}
-                                <div className="row g-2 mb-3">
-                                    
-                                    {/* Start Month */}
-                                    <div className="col-md-6">
-                                        <label htmlFor="addExperience_startMonth" className="fw-bold">
-                                            <span>Month started</span>
-                                            <span className="text-danger">*</span>
+                                    {/* Title */}
+                                    <div className="mb-3">
+                                        <label htmlFor="addExperience_title" className="fw-bold">
+                                            <span>Title</span>
+                                            <span className="text-danger ms-1">*</span>
                                         </label>
                                         <input 
-                                            type="date" 
+                                            type="text" 
                                             className="form-control" 
-                                            id="addExperience_startMonth" 
-                                            name="start" 
-                                            placeholder="Select start mpnth here" 
+                                            id="addExperience_title" 
+                                            name="title" 
+                                            placeholder="Insert title here" 
                                         />
                                     </div>
 
-                                    {/* Start Year */}
-                                    <div className="col-md-6">
-                                        <label htmlFor="addExperience_startYear" className="fw-bold">
-                                            <span>Year started</span>
-                                            <span className="text-danger">*</span>
+                                    {/* Company */}
+                                    <div className="mb-3">
+                                        <label htmlFor="addExperience_company" className="fw-bold">
+                                            <span>Company</span>
+                                            <span className="text-danger ms-1">*</span>
                                         </label>
                                         <input 
-                                            type="year" 
+                                            type="text" 
                                             className="form-control" 
-                                            id="addExperience_startYear" 
+                                            id="addExperience_company" 
                                             name="company" 
-                                            placeholder="Select end date here" 
+                                            placeholder="Insert company here" 
                                         />
                                     </div>
-                                </div>
 
-                                {/* Month and Year Ended */}
-                                <div className="row g-2 mb-3">
-                                    
-                                    {/* End Month */}
-                                    <div className="col-md-6">
-                                        <label htmlFor="addExperience_endMonth" className="fw-bold">
-                                            <span>Month ended</span>
-                                            <span className="text-danger">*</span>
+                                    {/* Month and Year Started */}
+                                    <div className="row g-2 mb-3">
+                                        
+                                        {/* Start Month */}
+                                        <div className="col-md-6">
+                                            <label htmlFor="addExperience_startMonth" className="fw-bold">
+                                                <span>Month started</span>
+                                                <span className="text-danger">*</span>
+                                            </label>
+                                            <input 
+                                                type="date" 
+                                                className="form-control" 
+                                                id="addExperience_startMonth" 
+                                                name="start" 
+                                                placeholder="Select start mpnth here" 
+                                            />
+                                        </div>
+
+                                        {/* Start Year */}
+                                        <div className="col-md-6">
+                                            <label htmlFor="addExperience_startYear" className="fw-bold">
+                                                <span>Year started</span>
+                                                <span className="text-danger">*</span>
+                                            </label>
+                                            <input 
+                                                type="year" 
+                                                className="form-control" 
+                                                id="addExperience_startYear" 
+                                                name="company" 
+                                                placeholder="Select end date here" 
+                                            />
+                                        </div>
+                                    </div>
+
+                                    {/* Month and Year Ended */}
+                                    <div className="row g-2 mb-3">
+                                        
+                                        {/* End Month */}
+                                        <div className="col-md-6">
+                                            <label htmlFor="addExperience_endMonth" className="fw-bold">
+                                                <span>Month ended</span>
+                                                <span className="text-danger">*</span>
+                                            </label>
+                                            <input 
+                                                type="date" 
+                                                className="form-control" 
+                                                id="addExperience_endMonth" 
+                                                name="start" 
+                                                placeholder="Select start month here" 
+                                            />
+                                        </div>
+
+                                        {/* End Year */}
+                                        <div className="col-md-6">
+                                            <label htmlFor="addExperience_endYear" className="fw-bold">
+                                                <span>Year ended</span>
+                                                <span className="text-danger">*</span>
+                                            </label>
+                                            <input 
+                                                type="year" 
+                                                className="form-control" 
+                                                id="addExperience_endYear" 
+                                                name="company" 
+                                                placeholder="Select start year here" 
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div className="mb-3">
+                                        <label htmlFor="addExperience_description" className="fw-bold">
+                                            <span>Description</span>
                                         </label>
-                                        <input 
-                                            type="date" 
-                                            className="form-control" 
-                                            id="addExperience_endMonth" 
-                                            name="start" 
-                                            placeholder="Select start month here" 
-                                        />
+                                        <textarea 
+                                            className="form-control"
+                                            name="description" 
+                                            id="addExperience_description" 
+                                            rows="5"
+                                            placeholder="Type a brief description here ..."
+                                        ></textarea>
                                     </div>
-
-                                    {/* End Year */}
-                                    <div className="col-md-6">
-                                        <label htmlFor="addExperience_endYear" className="fw-bold">
-                                            <span>Year ended</span>
-                                            <span className="text-danger">*</span>
-                                        </label>
-                                        <input 
-                                            type="year" 
-                                            className="form-control" 
-                                            id="addExperience_endYear" 
-                                            name="company" 
-                                            placeholder="Select start year here" 
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className="mb-3">
-                                    <label htmlFor="addExperience_description" className="fw-bold">
-                                        <span>Description</span>
-                                    </label>
-                                    <textarea 
-                                        className="form-control"
-                                        name="description" 
-                                        id="addExperience_description" 
-                                        rows="5"
-                                        placeholder="Type a brief description here ..."
-                                    ></textarea>
-                                </div>
-                            </div>
+                                </Form>
+                            </Modal.Body>
 
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-light" data-bs-dismiss="modal">

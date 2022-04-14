@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { DOCUMENT_EXTENSION } from '../constants';
 
 class Home extends Component {
     componentDidMount() {
-        document.title = "Home - Made by PrensDev"
+        document.title = "Home" + DOCUMENT_EXTENSION; 
     }
 
     render() { 

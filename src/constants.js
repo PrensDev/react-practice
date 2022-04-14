@@ -1,0 +1,1 @@
+export const DOCUMENT_EXTENSION = " - Made with Love <3 by PrensDev";
