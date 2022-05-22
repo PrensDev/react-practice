@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 
 class ConfirmationModal extends Component {
-    render() { 
-        return (
-            <>
-            </>
-        );
-    }
+	render() {
+		return (
+			<>
+			</>
+		);
+	}
 }
 
 export default ConfirmationModal;

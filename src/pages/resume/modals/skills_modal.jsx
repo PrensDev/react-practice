@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 
 class SkillsModal extends Component {
-    render() { 
-        return (
-            <>
-            </>
-        );
-    }
+	render() {
+		return (
+			<>
+			</>
+		);
+	}
 }
 
 export default SkillsModal;
